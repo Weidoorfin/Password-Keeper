@@ -2,7 +2,7 @@
 
 An simple program that helps you store you account and password information locally
 
-Version: **v1.0**
+Version: **v1.1**
 
 ---
 
@@ -11,13 +11,15 @@ Version: **v1.0**
 - View all existing passwords (in plain text)
 - Using json to store all local data
 - Interaction based on command input
+- Delete an existing password
 
 ---
 
 ## Project Structure
 ```
 Passwork-Keeper/
-├── main.py          # Program Interface and Interaction
+├── main.py          # Program Interface
+├── manage.py        # Program Operations (NEW)
 ├── storage.py       # Management of adding or loading password
 ├── data.json        # Local file that stores data (inside .gitignore)
 ├── README.md        # Project Instruction
@@ -46,12 +48,11 @@ python main.py
 
 ## Update Blog
 
-### v1.0 (2025-05-07)
+### v1.1 (2025-05-07)
 
-- Initialization of the project
-- Realization of adding and viewing functions
-- Utilization of JSON file to locally store data
-- Modulization of Project (main.py + storage.py)
+- Reconstruct of the project:  
+Seperating operations and user interfact, store operation into `manage.py`
+- Adding new **delete password** function
 
 ---
 
@@ -62,7 +63,6 @@ python main.py
 ---
 
 ## Future Plans
-- Delete password function
 - Hide Password with `*`
 - Main password verification
 - Search password function
