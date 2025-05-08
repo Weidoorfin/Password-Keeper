@@ -1,15 +1,15 @@
 # Password Keeper
 
-An simple program that helps you store you account and password information locally
+An simple program that helps you store you account and password information locally, self developed.
 
-Version: **v1.2**
+Version: **v1.2.1**
 
 ---
 
 ## Features
 - Adding a new password
 - View all existing passwords (in plain text)
-- Developed a master password control for security **(*NEW)**
+- Developed a master password control for security
 - Using json to store all local data
 - Interaction based on command input
 - Delete an existing password
@@ -19,14 +19,20 @@ Version: **v1.2**
 ## Project Structure
 ```
 Passwork-Keeper/
-├── main.py                 # Program Interface
-├── manage.py               # Program Operations
-├── storage.py              # Management of adding or loading password
-├── master_password.py      # Management of master password
-├── data.json               # Local file that stores data (in .gitignore)
-├── master_password.json    # Local file that stores master password (in .gitignore)
-├── README.md               # Project Instruction
-├── .gitignore              # ignoring private files, mostly *.json
+│
+├── README.md
+├── .gitignore
+│
+├── data/
+│   ├── data.json
+│   └── master_password.json
+│
+├── src/
+│   ├── main.py
+│   ├── manager.py
+│   ├── storage.py
+|   ├── config.py
+│   └── master_password.py
 ```
 
 ---
@@ -42,24 +48,24 @@ cd Passwork-Keeper
 3. Execute the program by:
 
 ```bash
-python main.py
+python src/main.py
 ```
 
-4. Input command based on instruction (adding/viewing)
+1. Input command base on the instructions
 
 ---
 
 ## Update Log
 
-### v1.2 (2025-05-08)
+### v1.2.1 (2025-05-08)
 
-- Adding a new module `master_password.py`, secure the data by using a master password control
+- Reconstruct of the project, sorting different file into different folders, planning for future development
 
 ---
 
 ## Warning
 - Never upload `*.json` with real passwords to Github!
-- `*.json` has been ignored in `.gitignore`, no further action needed
+- `*.json` has been ignored by including file names in `.gitignore`
 
 ---
 

@@ -1,4 +1,4 @@
-data.json
-master_password.json
+#gitignore
+src/__pycache__/*.pyc
 
-__pycache__/*.pyc
+data/*.json 

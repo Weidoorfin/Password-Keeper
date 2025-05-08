@@ -2,8 +2,7 @@
 
 import json
 import os
-
-MASTER_PASSWORD_FILE = "master_password.json"
+from config import MASTER_PASSWORD_FILE
 
 def get_master():
     if not os.path.exists(MASTER_PASSWORD_FILE):
