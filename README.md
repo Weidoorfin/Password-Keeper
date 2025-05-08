@@ -2,13 +2,14 @@
 
 An simple program that helps you store you account and password information locally
 
-Version: **v1.1**
+Version: **v1.2**
 
 ---
 
 ## Features
 - Adding a new password
 - View all existing passwords (in plain text)
+- Developed a master password control for security **(*NEW)**
 - Using json to store all local data
 - Interaction based on command input
 - Delete an existing password
@@ -18,12 +19,14 @@ Version: **v1.1**
 ## Project Structure
 ```
 Passwork-Keeper/
-├── main.py          # Program Interface
-├── manage.py        # Program Operations (NEW)
-├── storage.py       # Management of adding or loading password
-├── data.json        # Local file that stores data (inside .gitignore)
-├── README.md        # Project Instruction
-├── .gitignore       # ignoring private files such as data.json
+├── main.py                 # Program Interface
+├── manage.py               # Program Operations
+├── storage.py              # Management of adding or loading password
+├── master_password.py      # Management of master password
+├── data.json               # Local file that stores data (in .gitignore)
+├── master_password.json    # Local file that stores master password (in .gitignore)
+├── README.md               # Project Instruction
+├── .gitignore              # ignoring private files, mostly *.json
 ```
 
 ---
@@ -46,25 +49,22 @@ python main.py
 
 ---
 
-## Update Blog
+## Update Log
 
-### v1.1 (2025-05-07)
+### v1.2 (2025-05-08)
 
-- Reconstruct of the project:  
-Seperating operations and user interfact, store operation into `manage.py`
-- Adding new **delete password** function
+- Adding a new module `master_password.py`, secure the data by using a master password control
 
 ---
 
 ## Warning
-- Never upload `data.json` with real passwords to Github!
-- `data.json` has been ignored in `.gitignore`, no further action needed
+- Never upload `*.json` with real passwords to Github!
+- `*.json` has been ignored in `.gitignore`, no further action needed
 
 ---
 
 ## Future Plans
 - Hide Password with `*`
-- Main password verification
 - Search password function
 - Encryption of password
 - GUI interface

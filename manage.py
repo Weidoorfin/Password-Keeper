@@ -27,7 +27,7 @@ def view_password():
 
 
 def delete_password():
-    website = input("Enter the website you want to delete")
+    website = input("Enter the website you want to delete:\n")
     
     if website in passwords:
         comfirm = input(f"Warning: Are you sure you want to delete information about {website}? (y/n): ").strip().lower()

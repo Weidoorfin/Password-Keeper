@@ -15,6 +15,3 @@ def load_data():
 def save_data(data):
     with open(FILE_PATH, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
-
-def delete_password(website):
-    return
