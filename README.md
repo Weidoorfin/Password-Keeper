@@ -23,7 +23,7 @@ Passwork-Keeper/
 ├── README.md
 ├── .gitignore
 │
-├── data/
+├── data/   #Folder & file generates upon first execution
 │   ├── data.json
 │   └── master_password.json
 │
@@ -51,7 +51,7 @@ cd Passwork-Keeper
 python src/main.py
 ```
 
-1. Input command base on the instructions
+4. Input command base on the instructions
 
 ---
 
