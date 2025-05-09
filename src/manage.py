@@ -1,6 +1,7 @@
 # manage.py
 
 from storage import load_data, save_data
+from crypto import hash_enpcrypt
 
 passwords = load_data()
 
@@ -9,6 +10,10 @@ def add_password():
     website = input("name of website:\n")
     username = input("enter username:\n")
     password = input("enter password:\n")
+
+    website = hash_enpcrypt(website)
+    username = hash_enpcrypt(username)
+    password = hash_enpcrypt(password)
 
     passwords[website] = {
         "username": username,
