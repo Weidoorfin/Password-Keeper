@@ -2,7 +2,7 @@
 
 An simple program that helps you store you account and password information locally, self developed.
 
-Version: **v1.2.1**
+Version: **v1.3**
 
 ---
 
@@ -13,6 +13,7 @@ Version: **v1.2.1**
 - Using json to store all local data
 - Interaction based on command input
 - Delete an existing password
+- Import XOR encryption by C module
 
 ---
 
@@ -33,6 +34,13 @@ Passwork-Keeper/
 │   ├── storage.py
 |   ├── config.py
 │   └── master_password.py
+│
+├── build/
+│   └── crypto.dll
+│
+├── clib/
+|   ├── crypto.c
+|   └── crypto.h
 ```
 
 ---
@@ -57,9 +65,9 @@ python src/main.py
 
 ## Update Log
 
-### v1.2.1 (2025-05-08)
+### v1.3 (2025-05-09)
 
-- Reconstruct of the project, sorting different file into different folders, planning for future development
+- Introducing `clib` and `crypto.c/h` for XOR encryption, store `data.json` and `master_password.json` in ciphertext
 
 ---
 
@@ -72,7 +80,6 @@ python src/main.py
 ## Future Plans
 - Hide Password with `*`
 - Search password function
-- Encryption of password
 - GUI interface
 - Remote access
 

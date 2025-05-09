@@ -25,3 +25,23 @@ def hash_enpcrypt(password):
 
     return encrypted
 
+def hash_decrypt(password):
+    crypto = ctypes.CDLL(CRYPTO_DLL_FILE)
+    crypto.xor_crypt.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+    crypto.xor_crypt.restype = ctypes.c_void_p
+
+    crypto.destroy.argtypes = [ctypes.c_void_p]
+    crypto.destroy.restype = None
+
+    raw = base64.b64decode(password)
+
+    key = get_master()
+
+    ptr = crypto.xor_crypt(raw, key.encode())
+
+    decrypted = ctypes.string_at(ptr).decode()
+
+    crypto.destroy(ptr)
+
+    return decrypted
+

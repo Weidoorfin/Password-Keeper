@@ -1,7 +1,7 @@
 # manage.py
 
 from storage import load_data, save_data
-from crypto import hash_enpcrypt
+from crypto import hash_enpcrypt, hash_decrypt
 
 passwords = load_data()
 
@@ -28,7 +28,10 @@ def view_password():
         return
     print("Password saved:")
     for site, info in passwords.items():
-        print(f"{site}:\nusername={info['username']}\npassword={info['password']}\n")
+        website = hash_decrypt(site)
+        username = hash_decrypt(info['username'])
+        password = hash_decrypt(info['password'])
+        print(f"{website}:\nusername:{username}\npassword:{password}\n")
 
 
 def delete_password():
