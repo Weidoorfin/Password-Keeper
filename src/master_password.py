@@ -3,6 +3,11 @@
 import json
 import os
 from config import MASTER_PASSWORD_FILE
+import hashlib
+
+def hash_encrypt(password: str) -> str:
+    return hashlib.sha256(password.encode()).hexdigest()
+
 
 def get_master():
     if not os.path.exists(MASTER_PASSWORD_FILE):
@@ -12,11 +17,17 @@ def get_master():
         return data.get("master_password")
 
 def set_master():
-    data = input("Please insert Master Password you want to use:\n")
+    print("Please insert Master Password you want to use:")
+    data = input("Please set password with at least 8 characters\n")
+    if len(data) < 8:
+        print("Password too short! Operation canceled")
+        return
     comfirm = input("Please insert again to comfirm:\n")
     if data == comfirm:
+        encry = hash_encrypt(data)
+        print("Master Password successfully set! Returning to authenticate")
         with open(MASTER_PASSWORD_FILE, "w") as file:
-            json.dump({"master_password": data}, file)
+            json.dump({"master_password": encry}, file)
             return
     print("The passwords you entered are not the same! Operation canceled")
     return
@@ -36,11 +47,10 @@ def authenticate():
     if master == None:
         print("Please set a Master Password to secure your data for the first launch!")
         set_master()
-        print("Master Password successfully set! Returning to authenticate")
         return authenticate()
     for i in range(4):
         password = input("Please insert Master Password:\n")
-        if password == master:
+        if hash_encrypt(password) == master:
             print("Authentication successful!")
             return True
         else:
