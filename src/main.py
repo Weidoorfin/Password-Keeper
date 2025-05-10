@@ -13,6 +13,7 @@ def main():
         print("Type 1 to add password")
         print("Type 2 to view all saved passwords")
         print("Type 3 to delete a password")
+        print("Type 4 to edit your passwords")
         print("Type 9 to change master password")
         print("Type 0 to exit the program\n")
 
@@ -23,6 +24,8 @@ def main():
             manage.view_password()
         elif choice == "3":
             manage.delete_password()
+        elif choice == "4":
+            manage.edit_password()
         elif choice == "9":
             master_password.reset_master_password()
         elif choice == "0":
@@ -30,6 +33,8 @@ def main():
             break
         else:
             print("Invalid input! Please re-enter")
+            continue
+        input("Press Enter to continue")
 
 if __name__ == "__main__":
     main()

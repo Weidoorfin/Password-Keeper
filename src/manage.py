@@ -48,3 +48,27 @@ def delete_password():
     else:
         print("Unable to find the website history")
     return
+
+
+def edit_password():
+    website = input("Enter the website you want to edit:\n")
+    website = hash_enpcrypt(website)
+    if website in passwords:
+        old_user = hash_decrypt(passwords[website]['username'])
+        old_pass = hash_decrypt(passwords[website]['password'])
+        print(f"Password saved:\nUsername:{old_user}\nPassword:{old_pass}")
+
+        username = input("Please enter new username\n")
+        password = input("Please enter new password\n")
+        username = hash_enpcrypt(username)
+        password = hash_enpcrypt(password)
+
+        passwords[website] = {
+            'username' : username,
+            'password' : password
+        }
+        save_data(passwords)
+        print("Edit comfirmed, password saved")
+    else:
+        print("Password not found, operation canceled")
+    return
